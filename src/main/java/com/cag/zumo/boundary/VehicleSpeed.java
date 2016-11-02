@@ -1,4 +1,6 @@
-package com.cag.zumo.model;
+package com.cag.zumo.boundary;
+
+import java.util.Objects;
 
 /**
  * Created by dawi on 2016-10-09.
@@ -27,5 +29,24 @@ public class VehicleSpeed {
 
     public void setRightSpeed(int rightSpeed) {
         this.rightSpeed = rightSpeed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VehicleSpeed that = (VehicleSpeed) o;
+        return leftSpeed == that.leftSpeed &&
+                rightSpeed == that.rightSpeed;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(leftSpeed, rightSpeed);
+    }
+
+
+    public boolean isNotStill() {
+        return leftSpeed != 0 || rightSpeed != 0;
     }
 }

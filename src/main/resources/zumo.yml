@@ -1,2 +1,3 @@
 registry: https://caglabs.com/registry
 serviceName: ZumoBot
+decayMode: SLOW
