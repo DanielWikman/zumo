@@ -7,6 +7,9 @@ import java.util.Objects;
  */
 public class VehicleSpeed {
 
+    public VehicleSpeed() {
+    }
+
     public VehicleSpeed(int leftSpeed, int rightSpeed) {
         this.leftSpeed = leftSpeed;
         this.rightSpeed = rightSpeed;
