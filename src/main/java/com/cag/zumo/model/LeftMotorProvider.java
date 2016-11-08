@@ -21,7 +21,7 @@ public class LeftMotorProvider implements Provider<MotorControl> {
     }
 
     public MotorControl get() {
-        Drv8833MotorControl motorControl = new Drv8833MotorControl(controller, RaspiPin.GPIO_01, RaspiPin.GPIO_23);
+        Drv8833MotorControl motorControl = new Drv8833MotorControl(controller, RaspiPin.GPIO_23, RaspiPin.GPIO_01);
         motorControl.setDecay(decayMode);
         return motorControl;
     }
