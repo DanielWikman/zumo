@@ -1,7 +1,7 @@
 package com.cag.zumo.model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 /**
  * Created by dawi on 2016-10-06.

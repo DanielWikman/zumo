@@ -1,11 +1,11 @@
 package com.cag.zumo.model;
 
 import com.cag.zumo.boundary.VehicleSpeed;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 /**
  * Created by dawi on 2016-10-09.

@@ -1,15 +1,11 @@
 package com.cag.zumo.model.managed;
 
 import com.cag.zumo.model.VehicleControl;
+import com.google.inject.Inject;
 import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
 import io.dropwizard.lifecycle.Managed;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 /**
  * Created by dawi on 2016-10-09.

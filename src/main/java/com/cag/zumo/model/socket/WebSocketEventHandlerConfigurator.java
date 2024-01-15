@@ -4,7 +4,7 @@ import com.cag.zumo.model.module.ZumoModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import javax.websocket.server.ServerEndpointConfig;
+import jakarta.websocket.server.ServerEndpointConfig;
 
 /**
  * Created by dawi on 2016-10-23.

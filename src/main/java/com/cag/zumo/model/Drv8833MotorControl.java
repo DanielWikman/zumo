@@ -8,8 +8,8 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinMode;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 /**
  * Created by dawi on 2016-10-09.

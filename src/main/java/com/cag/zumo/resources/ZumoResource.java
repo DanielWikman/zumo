@@ -7,12 +7,12 @@ import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 /**
  * Created by dawi on 2016-10-06.
@@ -36,9 +36,8 @@ public class ZumoResource {
     @GET
     @Path("stop")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response stop() {
-        vehicleControl.speed(0, 0);
-        return Response.ok().build();
+    public VehicleSpeed stop() {
+        return vehicleControl.speed(0, 0);
     }
 
     @Timed

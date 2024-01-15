@@ -2,10 +2,10 @@ package com.cag.zumo;
 
 import com.cag.zumo.model.DecayMode;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.dropwizard.Configuration;
+import io.dropwizard.core.Configuration;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Created by dawi on 2016-10-06.
