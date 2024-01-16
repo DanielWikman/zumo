@@ -1,15 +1,18 @@
 package com.cag.zumo.model;
 
 import com.cag.zumo.boundary.VehicleSpeed;
+import com.cag.zumo.joystick.DriveSide;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by dawi on 2016-10-09.
  */
+@Slf4j
 public class VehicleControl {
 
     private MotorControl leftMotor;
@@ -37,5 +40,13 @@ public class VehicleControl {
         return new VehicleSpeed(leftMotor.getSpeed(), rightMotor.getSpeed());
     }
 
-
+    public VehicleSpeed speed(DriveSide side, @Min(-100) @Max(100) int speed) {
+        log.info("Speed {} {}", side, speed);
+        if (DriveSide.LEFT.equals(side)) {
+            leftMotor.motorSpeed(speed);
+        } else {
+            rightMotor.motorSpeed(speed);
+        }
+        return new VehicleSpeed(leftMotor.getSpeed(), rightMotor.getSpeed());
+    }
 }

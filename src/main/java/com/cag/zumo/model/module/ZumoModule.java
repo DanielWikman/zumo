@@ -1,6 +1,8 @@
 package com.cag.zumo.model.module;
 
+import com.cag.zumo.joystick.JoystickEventHandler;
 import com.cag.zumo.model.DecayMode;
+import com.cag.zumo.model.JoystickVehicleControl;
 import com.cag.zumo.model.LeftMotorProvider;
 import com.cag.zumo.model.MotorControl;
 import com.cag.zumo.model.RightMotorProvider;
@@ -38,5 +40,8 @@ public class ZumoModule extends AbstractModule {
             bind(DeadMansHand.class);
             bind(GpioControl.class);
             bind(GpioController.class).toInstance(GpioFactory.getInstance());
+            bind(JoystickEventHandler.class).asEagerSingleton();
+            bind(JoystickVehicleControl.class)
+            ;
     }
 }

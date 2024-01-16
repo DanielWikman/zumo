@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import io.dropwizard.lifecycle.Managed;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * Created by dawi on 2016-10-23.
@@ -17,6 +18,11 @@ public class DeadMansHand implements Managed, Runnable {
     private boolean running = true;
     private VehicleSpeed lastSpeed;
     private long lastSpeedAt;
+    private long allowedDelay = 1500;
+
+    public void setAllowedDelay(long maxAllowedDelay) {
+        this.allowedDelay = maxAllowedDelay;
+    }
 
     @Inject
     public DeadMansHand(VehicleControl control) {
@@ -36,14 +42,14 @@ public class DeadMansHand implements Managed, Runnable {
     public void run() {
         while (running) {
             VehicleSpeed speed = vehicleControl.getSpeed();
-            if (lastSpeed == null || ! speed.equals(lastSpeed)) {
+            if (! Objects.equals(lastSpeed, speed)) {
                 lastSpeed = speed;
                 lastSpeedAt = System.currentTimeMillis();
             }
             else {
                 if (lastSpeed.isNotStill()) {
                     long now = System.currentTimeMillis();
-                    if (now - lastSpeedAt > 1500) {
+                    if (now - lastSpeedAt > allowedDelay) {
                         lastSpeed = vehicleControl.speed(0, 0);
                         lastSpeedAt = now;
                     }

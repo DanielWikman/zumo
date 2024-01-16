@@ -15,8 +15,6 @@ import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
 
-import jakarta.websocket.server.ServerEndpointConfig;
-
 /**
  * Created by dawi on 2016-10-06.
  */

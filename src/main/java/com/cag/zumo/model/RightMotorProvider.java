@@ -20,12 +20,12 @@ public class RightMotorProvider implements Provider<MotorControl> {
     }
 
     /**
-     * GPIO_26 = 32
-     * GPIO_24 = 35
+     * GPIO_26 = 32 35 GPIO_24
+     * GPIO_24 = 35 33 GPIO_23
      * @return
      */
     public MotorControl get() {
-        Drv8833MotorControl motorControl = new Drv8833MotorControl(controller, RaspiPin.GPIO_26, RaspiPin.GPIO_24);
+        Drv8833MotorControl motorControl = new Drv8833MotorControl(controller, RaspiPin.GPIO_23, RaspiPin.GPIO_24);
         motorControl.setDecay(decayMode);
         return motorControl;
     }

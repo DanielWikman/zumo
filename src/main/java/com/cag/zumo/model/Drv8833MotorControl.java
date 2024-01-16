@@ -55,8 +55,8 @@ public class Drv8833MotorControl extends MotorControl {
             digitalOutput.setState(decayMode.getMode());
         } else {
             if (newSpeed > 0 && getSpeed() <= 0) {
-                controller.setMode(PinMode.PWM_OUTPUT, controller.getProvisionedPin(xIn1));
                 controller.setMode(PinMode.DIGITAL_OUTPUT, controller.getProvisionedPin(xIn2));
+                controller.setMode(PinMode.PWM_OUTPUT, controller.getProvisionedPin(xIn1));
                 pwmOutput = (GpioPinPwmOutput) controller.getProvisionedPin(xIn1);
                 digitalOutput = (GpioPinDigitalOutput) controller.getProvisionedPin(xIn2);
             }
@@ -82,7 +82,7 @@ public class Drv8833MotorControl extends MotorControl {
         }
         else {
             int pwm = 4 * speed + 624;
-            log.info("PWM: {}", pwm);
+            //log.info("PWM: {}", pwm);
             return pwm;
         }
     }
