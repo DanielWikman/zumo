@@ -1,6 +1,7 @@
 package com.cag.zumo.model.module;
 
 import com.cag.zumo.joystick.JoystickEventHandler;
+import com.cag.zumo.joystick.JoystickStandbyHandler;
 import com.cag.zumo.model.DecayMode;
 import com.cag.zumo.model.JoystickVehicleControl;
 import com.cag.zumo.model.LeftMotorProvider;
@@ -10,6 +11,7 @@ import com.cag.zumo.model.S03615Servo;
 import com.cag.zumo.model.VehicleControl;
 import com.cag.zumo.model.managed.DeadMansHand;
 import com.cag.zumo.model.managed.GpioControl;
+import com.cag.zumo.model.managed.JoystickControl;
 import com.cag.zumo.model.providers.ServoAProvider;
 import com.cag.zumo.model.providers.ServoBProvider;
 import com.google.inject.AbstractModule;
@@ -35,6 +37,8 @@ public class ZumoModule extends AbstractModule {
             bind(S03615Servo.class)
                 .annotatedWith(Names.named("ServoB"))
                 .toProvider(ServoBProvider.class);
+            bind(JoystickStandbyHandler.class);
+            bind(JoystickControl.class);
             bind(VehicleControl.class).asEagerSingleton();
             bind(DecayMode.class).toInstance(DecayMode.SLOW);
             bind(DeadMansHand.class);

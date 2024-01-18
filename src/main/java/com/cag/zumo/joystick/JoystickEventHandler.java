@@ -30,6 +30,7 @@ public class JoystickEventHandler {
     }
 
     public void disarm() {
+        log.info("Disarmed -----");
         armed = false;
     }
 
@@ -42,7 +43,7 @@ public class JoystickEventHandler {
         }
 
         public void run() {
-
+            log.info("Joystick Vehicle Thread started");
             Event event = new Event();
 
             /* Get the available controllers */
@@ -65,16 +66,19 @@ public class JoystickEventHandler {
                                         .value(Math.round(comp.getPollData() * 100.0f))
                                         .build());
                             }
-                            if (comp.getName().equals("ry")) {
+                            else if (comp.getName().equals("ry")) {
                                 consumer.accept(JoystickEvent.builder()
                                         .driveSide(DriveSide.RIGHT)
                                         .value(Math.round(comp.getPollData() * 100.0f))
                                         .build());
+                            } else if (comp.getName().equals("Select")) {
+                                armed = false;
                             }
                         }
                     }
                 }
             }
+            log.info("Joystick Vehicle Thread stopped");
         }
     }
 }

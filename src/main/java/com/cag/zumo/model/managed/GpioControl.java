@@ -22,10 +22,12 @@ public class GpioControl implements Managed {
         this.controller = controller;
     }
 
+    @Override
     public void start() {
         log.info("start");
     }
 
+    @Override
     public void stop() {
         log.info("stop");
         vehicleControl.stop();

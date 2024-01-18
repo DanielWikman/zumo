@@ -69,8 +69,9 @@ public class ZumoResource {
     public Response disarm() {
         if (joystickVehicleControl.disarm()) {
             return Response.ok().build();
-        };
-        return Response.status(400).build();    }
+        }
+        return Response.status(400).build();
+    }
 
     @Timed
     @GET

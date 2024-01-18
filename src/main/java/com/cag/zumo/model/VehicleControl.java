@@ -41,7 +41,7 @@ public class VehicleControl {
     }
 
     public VehicleSpeed speed(DriveSide side, @Min(-100) @Max(100) int speed) {
-        log.info("Speed {} {}", side, speed);
+        //log.info("Speed {} {}", side, speed);
         if (DriveSide.LEFT.equals(side)) {
             leftMotor.motorSpeed(speed);
         } else {
