@@ -20,8 +20,8 @@ public class RightMotorProvider implements Provider<MotorControl> {
     }
 
     /**
-     * GPIO_26 = 32 35 GPIO_24
-     * GPIO_24 = 35 33 GPIO_23
+     * GPIO_26 = 32
+     * GPIO_23 = 33
      * @return
      */
     public MotorControl get() {

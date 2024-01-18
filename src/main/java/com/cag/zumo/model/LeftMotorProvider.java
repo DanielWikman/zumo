@@ -22,7 +22,7 @@ public class LeftMotorProvider implements Provider<MotorControl> {
 
     /**
      * GPIO_01 == 12
-     * GPIO_23 == 33 32 GPIO_26
+     * GPIO_26 == 32
      * @return
      */
     public MotorControl get() {
