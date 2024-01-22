@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import com.cag.zumo.boundary.VehicleSpeed;
 import com.cag.zumo.joystick.DriveSide;

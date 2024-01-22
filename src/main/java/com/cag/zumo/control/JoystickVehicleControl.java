@@ -1,7 +1,7 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import com.cag.zumo.joystick.JoystickEventHandler;
-import com.cag.zumo.model.managed.DeadMansHand;
+import com.cag.zumo.control.managed.DeadMansHand;
 import com.google.inject.Inject;
 
 

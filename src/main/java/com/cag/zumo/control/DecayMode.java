@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import com.pi4j.io.gpio.PinState;
 

@@ -1,6 +1,6 @@
 package com.cag.zumo.joystick;
 
-import com.cag.zumo.model.JoystickVehicleControl;
+import com.cag.zumo.control.JoystickVehicleControl;
 import com.google.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;

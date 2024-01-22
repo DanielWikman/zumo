@@ -1,9 +1,9 @@
 package com.cag.zumo.resources;
 
 import com.cag.zumo.boundary.VehicleSpeed;
-import com.cag.zumo.model.JoystickVehicleControl;
-import com.cag.zumo.model.S03615Servo;
-import com.cag.zumo.model.VehicleControl;
+import com.cag.zumo.control.JoystickVehicleControl;
+import com.cag.zumo.control.S03615Servo;
+import com.cag.zumo.control.VehicleControl;
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;

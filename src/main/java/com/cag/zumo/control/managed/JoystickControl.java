@@ -1,4 +1,4 @@
-package com.cag.zumo.model.managed;
+package com.cag.zumo.control.managed;
 
 import com.cag.zumo.joystick.JoystickStandbyHandler;
 import com.google.inject.Inject;

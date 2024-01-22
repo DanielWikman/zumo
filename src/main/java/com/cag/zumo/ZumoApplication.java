@@ -1,10 +1,10 @@
 package com.cag.zumo;
 
 import com.cag.zumo.health.ZumoHealth;
-import com.cag.zumo.model.managed.DeadMansHand;
-import com.cag.zumo.model.managed.GpioControl;
-import com.cag.zumo.model.managed.JoystickControl;
-import com.cag.zumo.model.module.ZumoModule;
+import com.cag.zumo.control.managed.DeadMansHand;
+import com.cag.zumo.control.managed.GpioControl;
+import com.cag.zumo.control.managed.JoystickControl;
+import com.cag.zumo.control.module.ZumoModule;
 import com.cag.zumo.resources.ZumoResource;
 import com.google.inject.Guice;
 import com.google.inject.Injector;

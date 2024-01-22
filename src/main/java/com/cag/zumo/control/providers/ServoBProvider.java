@@ -1,6 +1,6 @@
-package com.cag.zumo.model.providers;
+package com.cag.zumo.control.providers;
 
-import com.cag.zumo.model.S03615Servo;
+import com.cag.zumo.control.S03615Servo;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.pi4j.io.gpio.GpioController;

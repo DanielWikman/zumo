@@ -1,11 +1,10 @@
-package com.cag.zumo.model.managed;
+package com.cag.zumo.control.managed;
 
 import com.cag.zumo.boundary.VehicleSpeed;
-import com.cag.zumo.model.VehicleControl;
+import com.cag.zumo.control.VehicleControl;
 import com.google.inject.Inject;
 import io.dropwizard.lifecycle.Managed;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
