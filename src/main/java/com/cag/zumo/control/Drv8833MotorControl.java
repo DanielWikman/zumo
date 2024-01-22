@@ -74,14 +74,15 @@ public class Drv8833MotorControl extends MotorControl {
     }
 
     private int getPwmValue(int speed) {
-        if (speed == 0) {
-            return speed;
+        int newSpeed = Math.round(speed * 0.6666667f);
+        if (newSpeed == 0) {
+            return newSpeed;
         }
         if (softwarePin) {
-            return speed;
+            return newSpeed;
         }
         else {
-            int pwm = 4 * speed + 624;
+            int pwm = 4 * newSpeed + 624;
             //log.info("PWM: {}", pwm);
             return pwm;
         }
