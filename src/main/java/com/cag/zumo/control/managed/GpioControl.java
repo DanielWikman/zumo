@@ -1,6 +1,6 @@
-package com.cag.zumo.model.managed;
+package com.cag.zumo.control.managed;
 
-import com.cag.zumo.model.VehicleControl;
+import com.cag.zumo.control.VehicleControl;
 import com.google.inject.Inject;
 import com.pi4j.io.gpio.GpioController;
 import io.dropwizard.lifecycle.Managed;
@@ -22,10 +22,12 @@ public class GpioControl implements Managed {
         this.controller = controller;
     }
 
+    @Override
     public void start() {
         log.info("start");
     }
 
+    @Override
     public void stop() {
         log.info("stop");
         vehicleControl.stop();

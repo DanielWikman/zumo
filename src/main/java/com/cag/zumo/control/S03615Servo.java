@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -6,8 +6,6 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinMode;
 import com.pi4j.io.gpio.PinState;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.concurrent.Future;
 
 /**
  * Created by dawi on 2016-11-05.

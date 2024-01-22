@@ -1,6 +1,6 @@
 package com.cag.zumo;
 
-import com.cag.zumo.model.DecayMode;
+import com.cag.zumo.control.DecayMode;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.core.Configuration;
 import org.hibernate.validator.constraints.NotEmpty;

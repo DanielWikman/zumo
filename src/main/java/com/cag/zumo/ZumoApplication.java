@@ -1,12 +1,10 @@
 package com.cag.zumo;
 
-import be.tomcools.dropwizard.websocket.WebsocketBundle;
 import com.cag.zumo.health.ZumoHealth;
-import com.cag.zumo.model.managed.DeadMansHand;
-import com.cag.zumo.model.managed.GpioControl;
-import com.cag.zumo.model.module.ZumoModule;
-import com.cag.zumo.model.socket.WebSocketEventHandler;
-import com.cag.zumo.model.socket.WebSocketEventHandlerConfigurator;
+import com.cag.zumo.control.managed.DeadMansHand;
+import com.cag.zumo.control.managed.GpioControl;
+import com.cag.zumo.control.managed.JoystickControl;
+import com.cag.zumo.control.module.ZumoModule;
 import com.cag.zumo.resources.ZumoResource;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -15,15 +13,11 @@ import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
 
-import jakarta.websocket.server.ServerEndpointConfig;
-
 /**
  * Created by dawi on 2016-10-06.
  */
 @Slf4j
 public class ZumoApplication extends Application<ZumoConfiguration> {
-
-    private final WebsocketBundle<ZumoConfiguration> websocket = new WebsocketBundle<>();
 
     private Injector injector;
 
@@ -34,22 +28,21 @@ public class ZumoApplication extends Application<ZumoConfiguration> {
     @Override
     public void initialize(Bootstrap<ZumoConfiguration> bootstrap) {
         injector = Guice.createInjector(new ZumoModule());
-        WebSocketEventHandlerConfigurator.setInjector(injector);
-        bootstrap.addBundle(websocket);
     }
 
     @Override
     public void run(ZumoConfiguration zumoConfiguration, Environment environment) throws Exception {
-        websocket.addEndpoint(WebSocketEventHandler.class);
         ZumoResource zumoResource = injector.getInstance(ZumoResource.class);
         GpioControl gpioControl = injector.getInstance(GpioControl.class);
         ZumoHealth  health = injector.getInstance(ZumoHealth.class);
         DeadMansHand deadMansHand = injector.getInstance(DeadMansHand.class);
+        JoystickControl joystickControl = injector.getInstance(JoystickControl.class);
         log.info("add health");
         environment.healthChecks().register("zumo", health);
         log.info("manage control");
         environment.lifecycle().manage(gpioControl);
         environment.lifecycle().manage(deadMansHand);
+        environment.lifecycle().manage(joystickControl);
         log.info("add resource");
         environment.jersey().register(zumoResource);
     }

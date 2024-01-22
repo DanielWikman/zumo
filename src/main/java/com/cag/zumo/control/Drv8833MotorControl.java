@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import com.google.inject.Inject;
 import com.pi4j.io.gpio.GpioController;
@@ -55,8 +55,8 @@ public class Drv8833MotorControl extends MotorControl {
             digitalOutput.setState(decayMode.getMode());
         } else {
             if (newSpeed > 0 && getSpeed() <= 0) {
-                controller.setMode(PinMode.PWM_OUTPUT, controller.getProvisionedPin(xIn1));
                 controller.setMode(PinMode.DIGITAL_OUTPUT, controller.getProvisionedPin(xIn2));
+                controller.setMode(PinMode.PWM_OUTPUT, controller.getProvisionedPin(xIn1));
                 pwmOutput = (GpioPinPwmOutput) controller.getProvisionedPin(xIn1);
                 digitalOutput = (GpioPinDigitalOutput) controller.getProvisionedPin(xIn2);
             }
@@ -74,15 +74,16 @@ public class Drv8833MotorControl extends MotorControl {
     }
 
     private int getPwmValue(int speed) {
-        if (speed == 0) {
-            return speed;
+        int newSpeed = Math.round(speed * 0.6666667f);
+        if (newSpeed == 0) {
+            return newSpeed;
         }
         if (softwarePin) {
-            return speed;
+            return newSpeed;
         }
         else {
-            int pwm = 4 * speed + 624;
-            log.info("PWM: {}", pwm);
+            int pwm = 4 * newSpeed + 624;
+            //log.info("PWM: {}", pwm);
             return pwm;
         }
     }

@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

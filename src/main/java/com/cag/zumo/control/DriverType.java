@@ -1,4 +1,4 @@
-package com.cag.zumo.model;
+package com.cag.zumo.control;
 
 /**
  * Created by dawi on 2016-10-09.
